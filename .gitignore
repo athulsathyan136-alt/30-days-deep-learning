@@ -14,3 +14,5 @@ datasets/
 .DS_Store
 .vscode/
 .idea/
+data/
+*.pth
