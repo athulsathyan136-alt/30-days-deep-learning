@@ -16,3 +16,6 @@ datasets/
 .idea/
 data/
 *.pth
+
+data/
+*.pth
