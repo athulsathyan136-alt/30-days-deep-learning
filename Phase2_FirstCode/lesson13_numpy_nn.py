@@ -4,7 +4,7 @@ x =  np.array([[1],[2],[3],[4],[5]])
 y = np.array([[3],[5],[7],[9],[11]])
 
 np.random.seed(42)
-w = np.random.randn()**0.01
+w = np.random.randn()*0.01
 b  = 0.0
 lr = 0.01
 for epoch in range(200):
