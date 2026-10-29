@@ -21,6 +21,3 @@ Hands-on projects using real datasets. Same training loop, different data.
 - Lower accuracy expected (~89% vs 98%)
 - Per-class accuracy reveals weak classes (T-shirt vs Shirt is hard)
 
-**How to run:**
-```bash
-python fashion_mnist.py
