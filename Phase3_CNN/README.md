@@ -1,62 +1,67 @@
-# Phase 3: CNN Projects
+# Phase 3: CNN on MNIST
 
 ## ✅ Completed
+- [x] Built LeNet-5 style CNN
+- [x] Trained for 10 epochs
+- [x] Achieved ~98.6% test accuracy
+- [x] Fewer parameters than MLP (44K vs 101K)
 
-### 1. Basic CNN (`lesson15_cnn.py`)
-- LeNet-style: 2 Conv2d + 2 MaxPool + 3 Linear
-- **Test accuracy: 98.62%**
+## 🏗️ Architecture
+Input: (1, 28, 28)
+↓ Conv2d(1, 6, 5) + ReLU → (6, 24, 24)
+↓ MaxPool2d(2) → (6, 12, 12)
+↓ Conv2d(6, 16, 5) + ReLU → (16, 8, 8)
+↓ MaxPool2d(2) → (16, 4, 4)
+↓ Flatten → (256,)
+↓ Linear(256, 128) + ReLU
+↓ Linear(128, 64) + ReLU
+↓ Linear(64, 10)
 
-### 2. Improved CNN (`lesson15b_improved_cnn.py`)
-- Modern architecture: padding + BatchNorm + Dropout
-- 2 Conv blocks (32, 64 filters) + classifier
-- **Test accuracy: 99.25%**
+**Total parameters: ~44,000**
 
-## 📊 Comparison
+## 📊 Results
+
+| Epoch | Test Accuracy |
+|-------|---------------|
+| 1 | 97.97% |
+| 5 | 98.77% |
+| 7 | **98.89%** (best) |
+| 10 | 98.62% |
+
+**Final: ~98.6% accuracy.**
+
+## 🆚 Compare: MLP vs CNN
 
 | Model | Test Accuracy | Parameters |
 |-------|--------------|------------|
 | MLP (Day 6) | 97.66% | 101,770 |
-| Basic CNN | 98.62% | ~44,000 |
-| Improved CNN | 99.25% | ~422,000 |
+| **CNN (Day 15)** | **98.62%** | **~44,000** |
 
-## 🏗️ Improved CNN Architecture
-Input: (1, 28, 28)
+**CNN: +1% accuracy, 60% fewer parameters.**
 
-Block 1:
-Conv2d(1, 32, 3, padding=1) → BatchNorm2d(32) → ReLU
-MaxPool2d(2) → Dropout(0.25)
-→ (32, 14, 14)
+## 💭 Reflection
+- Convolutions exploit spatial structure
+- Weight sharing → fewer parameters
+- Max pooling → translation invariance
+- Training loop unchanged from `y = 2x + 1`
 
-Block 2:
-Conv2d(32, 64, 3, padding=1) → BatchNorm2d(64) → ReLU
-MaxPool2d(2) → Dropout(0.25)
-→ (64, 7, 7)
+## 🔗 Next
+- Fine-tune: lower LR (0.001), LR scheduler, more epochs
+- Push to 99%+
+### 3. Transfer Learning (`lesson16_transfer_learning.py`)
 
-Classifier:
-Flatten → (3136,)
-Linear(3136, 128) → BatchNorm1d(128) → ReLU → Dropout(0.5)
-Linear(128, 10)
+**Task:** Use pretrained ResNet-18 on MNIST.
 
+**Key changes from ResNet-18:**
+- First layer: 3 channels → 1 channel (MNIST is grayscale)
+- Last layer: 1000 classes → 10 classes (digits)
 
-**Total parameters: ~422,000**
+**Training:** 5 epochs (vs 10 for from-scratch)
 
-## 🎯 Techniques Used
+**Expected accuracy:** ~99.5%
 
-| Technique | Purpose | Effect |
-|-----------|---------|--------|
-| Convolution | Detect local patterns | +1% over MLP |
-| Padding=1 | Preserve spatial size | Allows deeper nets |
-| BatchNorm | Stabilize training | Faster convergence |
-| Dropout | Prevent overfitting | Better generalization |
-| MaxPool | Reduce spatial size | Fewer parameters |
+**Training data:** 10,000 images (subset for speed)
 
-## 💭 Key Insights
-- BatchNorm makes epoch 1 already 97.85% (vs ~94% without)
-- More filters (32, 64) capture more patterns
-- Dropout prevents the large model from overfitting
-- 99.25% is excellent for this simple CNN
+**Image size:** 64×64 (faster than 224×224)
 
-## 🔗 Next Steps
-- Fine-tune: LR scheduler, data augmentation
-- Push to 99.5%+
-- Or: try pretrained ResNet
+**Result:** Higher accuracy, fewer epochs — the power of pretrained features.
