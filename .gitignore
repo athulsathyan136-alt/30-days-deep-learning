@@ -35,3 +35,9 @@ Phase7_MNIST_Project/data/
 Phase7_MNIST_Project/*.pth
 
 Phase7_MNIST_Project/__pycache__/
+
+Phase8_Image_Captioning/data/
+
+Phase8_Image_Captioning/*.pth
+
+Phase8_Image_Captioning/__pycache__/
