@@ -1,7 +1,4 @@
-"""
-MNIST Digit Classifier — Complete Project
-Trains a CNN to recognize handwritten digits (0-9).
-"""
+
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader

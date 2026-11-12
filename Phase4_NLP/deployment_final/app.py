@@ -1,7 +1,4 @@
-"""
-BERT Sentiment Classifier - Gradio App
-Uses fine-tuned DistilBERT from HuggingFace Hub.
-"""
+
 import gradio as gr
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch

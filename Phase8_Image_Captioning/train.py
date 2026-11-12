@@ -1,7 +1,4 @@
-"""
-Train image captioning model.
-Requires Flickr8k dataset in data/images/ + data/captions.txt
-"""
+
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
