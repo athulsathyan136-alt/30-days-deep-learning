@@ -45,3 +45,9 @@ Phase8_Image_Captioning/__pycache__/
 Phase9_Twitter_Sentiment/data/
 
 Phase9_Twitter_Sentiment/__pycache__/
+
+Phase10_Digit_Recognition/data/
+
+Phase10_Digit_Recognition/*.pth
+
+Phase10_Digit_Recognition/__pycache__/
