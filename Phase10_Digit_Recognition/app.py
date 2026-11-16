@@ -1,7 +1,4 @@
-"""
-Gradio app for MNIST digit recognition.
-Draw a digit, model predicts which one.
-"""
+
 import gradio as gr
 import torch
 import torch.nn as nn

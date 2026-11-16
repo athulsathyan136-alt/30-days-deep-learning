@@ -33,3 +33,16 @@ Given 4 measurements of an iris flower, predicts which species it is:
 ```bash
 pip install scikit-learn
 python main.py
+
+Dataset loaded: (150, 4)
+Features: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+Classes: ['setosa' 'versicolor' 'virginica']
+Samples per class: [50, 50, 50]
+
+Train: 120 | Test: 30
+Features normalized (mean=0, std=1)
+
+✅ Model trained
+
+=== Results ===
+Test Accuracy: 0.9667
